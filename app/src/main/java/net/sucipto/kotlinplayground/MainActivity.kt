@@ -1,17 +1,15 @@
 package net.sucipto.kotlinplayground
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.activity_main.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
+
 
 class MainActivity : AppCompatActivity() {
 
-    private val viewModel : MainViewModel by lazy {
-        ViewModelProviders.of(this).get(MainViewModel::class.java)
-    }
-
+    private val viewModel : MainViewModel by viewModel()
     private val changeObserver = Observer<Int> { value -> value?.let { incrementCount(value) }}
 
     override fun onCreate(savedInstanceState: Bundle?) {
