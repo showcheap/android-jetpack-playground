@@ -1,17 +1,28 @@
 package net.sucipto.kotlinplayground
 
 import android.os.Bundle
-import androidx.lifecycle.*
+import android.util.Log
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import net.sucipto.kotlinplayground.entity.Person
 
-class MainViewModel(private var count: Int = 0) : ViewModel(), LifecycleObserver{
+class MainViewModel(private var count: Int = 0) : ViewModel() {
     companion object {
         const val COUNT_KEY = "CountKey"
     }
-    val changeNotifier = MutableLiveData<Int>()
-    fun increment() { changeNotifier.value = ++count }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-    fun onResume() { increment() }
+    val personList = MutableLiveData<MutableList<Person>>()
+    var personData = mutableListOf<Person>()
+
+//    init {
+//        personList.value = mutableListOf(Person("Test"))
+//    }
+
+    fun addPerson(person: Person) {
+        personData.add(person)
+        personList.value = personData
+        Log.d("MV","addPerson ${person.name} Total data: ${personList.value?.size}")
+    }
 
     fun restoreState(inState: Bundle?) {
         inState?.let { count = inState.getInt(COUNT_KEY) }
