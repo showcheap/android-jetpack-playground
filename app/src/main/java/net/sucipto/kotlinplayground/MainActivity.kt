@@ -20,8 +20,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        viewModel.restoreState(savedInstanceState)
-
         recycler_main.apply {
             layoutManager = LinearLayoutManager(get())
             adapter = mainAdapter
@@ -33,21 +31,15 @@ class MainActivity : AppCompatActivity() {
         })
 
         main_add_button.setOnClickListener {
-            addName(main_edit_text.text.toString())
+            viewModel.addPerson(Person(null,main_edit_text.text.toString()))
+            main_edit_text.setText("")
+        }
+
+        main_btn_clear.setOnClickListener {
+            viewModel.clearPerson()
         }
 
 
     }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        viewModel.saveState(outState)
-    }
-
-    private fun addName(name: String) {
-        viewModel.addPerson(Person(name))
-        main_edit_text.setText("")
-    }
-
 
 }
