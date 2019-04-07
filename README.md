@@ -4,9 +4,9 @@ This repo is playground to try new androidx library, kotlin, and android [Room](
 # Step
 This app created step by step, separated each branch.
 
-1. [Basic MVVM](/tree/basic-mvvm)
-2. [Insert Koin](/tree/insert-koin)
-3. [Room Database](/tree/room-database)
+1. [Basic MVVM](/../../tree/basic-mvvm) create simple input text and list with MVVM
+2. [Insert Koin](/../../tree/insert-koin) use koin depedency injection in kotlin
+3. [Room Database](/../../tree/room-database) use Room database as persistent storage
 
 # License
 MIT
