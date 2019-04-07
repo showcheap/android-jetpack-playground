@@ -30,4 +30,8 @@ class MainViewModel(private val repository: PersonRepository) : ViewModel() {
     fun clearPerson() = scope.launch(Dispatchers.IO) {
         repository.clear()
     }
+
+    fun deletePerson(person: Person) = scope.launch(Dispatchers.IO) {
+        repository.delete(person)
+    }
 }

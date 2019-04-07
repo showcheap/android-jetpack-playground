@@ -13,4 +13,8 @@ class PersonRepository(private val dao: PersonDao) {
     fun clear() {
         dao.clear()
     }
+
+    fun delete(person: Person) {
+        dao.delete(person)
+    }
 }

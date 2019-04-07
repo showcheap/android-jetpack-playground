@@ -25,6 +25,8 @@ class MainActivity : AppCompatActivity() {
             adapter = mainAdapter
         }
 
+        mainAdapter.setDeleteListener { person -> onItemDelete(person) }
+
         viewModel.personList.observe(this, Observer { data ->
             Log.d("Observer", "Obs receive: ${data.size}")
             data.let { mainAdapter.setData(it) }
@@ -40,6 +42,10 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+    }
+
+    private fun onItemDelete(person: Person) {
+        viewModel.deletePerson(person)
     }
 
 }
