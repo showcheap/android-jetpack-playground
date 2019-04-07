@@ -12,7 +12,7 @@ import org.koin.dsl.module
 
 class App : Application() {
     val appModule = module {
-        single { Room.databaseBuilder(get(), AppDatabase::class.java, "database").allowMainThreadQueries().build() }
+        single { Room.databaseBuilder(get(), AppDatabase::class.java, "database").build() }
         single { get<AppDatabase>().personDao() }
         single { PersonRepository(get()) }
 
