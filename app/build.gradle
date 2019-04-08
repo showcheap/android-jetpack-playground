@@ -6,11 +6,14 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
+
 
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "net.sucipto.ankoplayground"
+        applicationId "net.sucipto.kotlinplayground"
         minSdkVersion 15
         targetSdkVersion 28
         versionCode 1
@@ -29,6 +32,7 @@ ext {
     koinVersion = "2.0.0-rc-2"
     roomVersion = "1.1.1"
     coroutineVersion = "1.1.1"
+    navVersion = "2.1.0-alpha02"
 }
 
 dependencies {
@@ -39,11 +43,13 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0-alpha04'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
 
+    // Android Nav
+    implementation "androidx.navigation:navigation-fragment-ktx:$navVersion" // For Kotlin use navigation-fragment-ktx
+    implementation "androidx.navigation:navigation-ui-ktx:$navVersion" // For Kotlin use navigation-ui-ktx
+
     // Koin for Android
     implementation "org.koin:koin-android:$koinVersion"
-    // or Koin for Lifecycle scoping
     implementation "org.koin:koin-androidx-scope:$koinVersion"
-    // or Koin for Android Architecture ViewModel
     implementation "org.koin:koin-androidx-viewmodel:$koinVersion"
 
     // Room components

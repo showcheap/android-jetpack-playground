@@ -1,4 +1,4 @@
-package net.sucipto.kotlinplayground
+package net.sucipto.kotlinplayground.ui.main
 
 import android.os.Bundle
 import android.util.Log
@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
+import net.sucipto.kotlinplayground.R
 import net.sucipto.kotlinplayground.entity.Person
 import org.koin.android.ext.android.get
 import org.koin.androidx.viewmodel.ext.android.viewModel

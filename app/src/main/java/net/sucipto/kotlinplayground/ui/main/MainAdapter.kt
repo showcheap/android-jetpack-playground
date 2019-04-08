@@ -1,10 +1,11 @@
-package net.sucipto.kotlinplayground
+package net.sucipto.kotlinplayground.ui.main
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import net.sucipto.kotlinplayground.R
 import net.sucipto.kotlinplayground.entity.Person
 
 class MainAdapter : RecyclerView.Adapter<MainAdapter.MainHolder>() {

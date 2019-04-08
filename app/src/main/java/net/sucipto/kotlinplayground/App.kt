@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.room.Room
 import net.sucipto.kotlinplayground.data.AppDatabase
 import net.sucipto.kotlinplayground.data.PersonRepository
+import net.sucipto.kotlinplayground.ui.main.MainViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.androidx.viewmodel.dsl.viewModel

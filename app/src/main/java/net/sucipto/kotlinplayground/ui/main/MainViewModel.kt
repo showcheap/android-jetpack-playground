@@ -1,4 +1,4 @@
-package net.sucipto.kotlinplayground
+package net.sucipto.kotlinplayground.ui.main
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.CoroutineScope
