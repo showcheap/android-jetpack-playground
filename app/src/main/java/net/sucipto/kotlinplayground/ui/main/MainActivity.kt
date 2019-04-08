@@ -1,5 +1,6 @@
 package net.sucipto.kotlinplayground.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 import net.sucipto.kotlinplayground.R
 import net.sucipto.kotlinplayground.entity.Person
+import net.sucipto.kotlinplayground.ui.detail.DetailActivity
 import org.koin.android.ext.android.get
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -26,7 +28,8 @@ class MainActivity : AppCompatActivity() {
             adapter = mainAdapter
         }
 
-        mainAdapter.setDeleteListener { person -> onItemDelete(person) }
+        mainAdapter.setDeleteListener { onItemDelete(it) }
+        mainAdapter.setClickListener { showDetailActivity(it) }
 
         viewModel.personList.observe(this, Observer { data ->
             Log.d("Observer", "Obs receive: ${data.size}")
@@ -47,6 +50,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun onItemDelete(person: Person) {
         viewModel.deletePerson(person)
+    }
+
+    private fun showDetailActivity(id:Int) {
+        val detailIntent = Intent(this, DetailActivity::class.java)
+        detailIntent.putExtra("id", id);
+
+        startActivity(detailIntent)
     }
 
 }

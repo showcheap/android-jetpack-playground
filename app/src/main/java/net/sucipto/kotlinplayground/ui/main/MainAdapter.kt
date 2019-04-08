@@ -12,6 +12,7 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.MainHolder>() {
 
     private var data = emptyList<Person>()
     private lateinit var deleteListener: (Person) -> Unit
+    private lateinit var clickListener: (Int) -> Unit
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -26,6 +27,9 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.MainHolder>() {
         holder.mNameId.text = "Person ID: ${person.id}"
         holder.mDeleteButton.setOnClickListener {
             deleteListener(person)
+        }
+        holder.itemView.setOnClickListener {
+            clickListener(person.id!!)
         }
 
     }
@@ -46,5 +50,9 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.MainHolder>() {
 
     fun setDeleteListener(listener: (Person) -> Unit) {
         deleteListener = listener
+    }
+
+    fun setClickListener(listener: (Int) -> Unit) {
+        clickListener = listener
     }
 }
