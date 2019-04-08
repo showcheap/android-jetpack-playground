@@ -20,4 +20,7 @@ interface PersonDao {
 
     @Insert
     fun add(person: Person)
+
+    @Query("SELECT * FROM persons WHERE id = :id")
+    fun find(id: Int) : LiveData<Person>
 }

@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun showDetailActivity(id:Int) {
         val detailIntent = Intent(this, DetailActivity::class.java)
-        detailIntent.putExtra("id", id);
+        detailIntent.putExtra("personId", id);
 
         startActivity(detailIntent)
     }

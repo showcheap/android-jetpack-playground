@@ -17,4 +17,6 @@ class PersonRepository(private val dao: PersonDao) {
     fun delete(person: Person) {
         dao.delete(person)
     }
+
+    fun find(id: Int) = dao.find(id)
 }
