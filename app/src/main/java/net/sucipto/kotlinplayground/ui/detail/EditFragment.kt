@@ -25,6 +25,8 @@ class EditFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        (activity as DetailActivity).supportActionBar?.title = "Edit Person"
     }
 
 }

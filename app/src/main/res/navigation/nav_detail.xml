@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/detailFragment"
         android:name="net.sucipto.kotlinplayground.ui.detail.DetailFragment"
-        android:label="detail_fragment"
+        android:label="Detail Fragment"
         tools:layout="@layout/detail_fragment" >
         <argument
             android:name="personId"
@@ -21,6 +21,6 @@
     <fragment
         android:id="@+id/editFragment"
         android:name="net.sucipto.kotlinplayground.ui.detail.EditFragment"
-        android:label="edit_fragment"
+        android:label="Edit Fragment"
         tools:layout="@layout/edit_fragment" />
 </navigation>

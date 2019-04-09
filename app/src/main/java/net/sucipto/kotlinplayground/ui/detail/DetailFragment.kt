@@ -39,7 +39,10 @@ class DetailFragment : Fragment() {
 
         viewModel.getPerson(args.personId).observe(this, Observer {
             detail_text_name.text = it.name
+            detail_text_id.text = Integer.toString(it.id!!)
         })
+
+        (activity as DetailActivity).supportActionBar?.title = "Person Detail"
 
     }
 }

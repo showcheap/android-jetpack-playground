@@ -3,6 +3,8 @@ package net.sucipto.kotlinplayground.ui.main
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 import net.sucipto.kotlinplayground.data.PersonRepository
 import net.sucipto.kotlinplayground.entity.Person
@@ -11,6 +13,13 @@ class MainViewModel(private val repository: PersonRepository) : ViewModel() {
 
 
     val personList = repository.persons
+
+    @ExperimentalCoroutinesApi
+    override fun onCleared() {
+        super.onCleared()
+
+        viewModelScope.cancel()
+    }
 
     fun addPerson(person: Person) = viewModelScope.launch(Dispatchers.IO) {
         repository.add(person)
