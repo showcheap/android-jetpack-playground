@@ -22,5 +22,9 @@
         android:id="@+id/editFragment"
         android:name="net.sucipto.kotlinplayground.ui.detail.EditFragment"
         android:label="Edit Fragment"
-        tools:layout="@layout/edit_fragment" />
+        tools:layout="@layout/edit_fragment" >
+        <argument
+            android:name="personId"
+            app:argType="integer"/>
+    </fragment>
 </navigation>

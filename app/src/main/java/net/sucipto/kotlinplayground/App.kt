@@ -21,7 +21,7 @@ class App : Application() {
 
         viewModel { MainViewModel(get()) }
         viewModel { DetailViewModel(get()) }
-        viewModel { EditViewModel() }
+        viewModel { EditViewModel(get()) }
     }
 
     override fun onCreate() {

@@ -19,4 +19,6 @@ class PersonRepository(private val dao: PersonDao) {
     }
 
     fun find(id: Int) = dao.find(id)
+
+    fun update(person: Person) = dao.update(person)
 }
